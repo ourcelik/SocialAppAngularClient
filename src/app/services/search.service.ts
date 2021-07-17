@@ -16,5 +16,8 @@ export class SearchService {
   getFilterText():string{
     return this.filterText;
   }
+  clearFilterText(){
+    this.filterText = "";
+  }
   
 }

@@ -21,6 +21,7 @@ export class SubChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.getByActivatedRoot();
+    this.clearFilterText();
   }
   getRoomsByMainRoomId(id: number) {
     this.subRoomService.getRoomsByMainRoomId(id).subscribe(response => {
@@ -42,6 +43,8 @@ export class SubChannelComponent implements OnInit {
   getFilterText(){
     return this.searchService.getFilterText();
   }
-
+  clearFilterText(){
+    this.searchService.clearFilterText();
+  }
 
 }

@@ -16,7 +16,7 @@ export class DiscoverComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSystemRooms();
-    this.getFilterText();
+    this.clearFilterText();
   }
 
   getSystemRooms(){
@@ -33,6 +33,9 @@ export class DiscoverComponent implements OnInit {
   }
   getFilterText(){
     return this.searchService.getFilterText();
+  }
+  clearFilterText(){
+    this.searchService.clearFilterText();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { SearchService } from 'src/app/services/search.service';
 @Component({
   selector: 'app-navbar',
@@ -7,16 +8,19 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class NavbarComponent implements OnInit {
 
-  filterText:string="";
+  filterText: string = "";
 
-  constructor(private searchService:SearchService) { }
+  constructor(private searchService: SearchService,private authService:AuthService) { }
 
   ngOnInit(): void {
 
   }
-  updateFilter()
-  {
+  updateFilter() {
     this.searchService.updateFilterText(this.filterText);
   }
+  isLoggedIn():boolean{
+    return this.authService.isAuthenticated();
+  }
+
 
 }

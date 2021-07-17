@@ -1,0 +1,29 @@
+<body class="text-center container mt-5">
+    
+    <main class="form-signin">
+      <form [formGroup]="loginForm" >
+        <img class="mb-4" src="https://www.pngfind.com/pngs/m/332-3325748_wolf-1-wing-logo-png-transparent-logo-transparan.png" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    
+        <div class="form-floating mt-5">
+          <input formControlName="userLoginInfo" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label class="op-5 upperCase" for="floatingInput">email-username-telno</label>
+        </div>
+        <div class="form-floating mt-5">
+          <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label class="op-5 upperCase" for="floatingPassword">Şifre</label>
+        </div>
+    
+        <div class="checkbox mb-3 mt-5">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button (click)="login()" class="mt-2 w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; ourcelik</p>
+      </form>
+    </main>
+    
+    
+        
+      </body>

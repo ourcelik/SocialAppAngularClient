@@ -1,0 +1,10 @@
+.container{
+    width: 25%;
+}
+.op-5{
+    opacity: 0.5;
+}
+
+.upperCase{
+    text-transform: uppercase;
+}
