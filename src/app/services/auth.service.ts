@@ -33,6 +33,9 @@ export class AuthService {
   isAuthenticated():boolean{
     return this.localStorageService.isInLocalStorage("token") ? true:false;
   }
+  isNotAuthenticated():boolean{
+    return this.localStorageService.isInLocalStorage("token") ? false:true;
+  }
   
 
 }

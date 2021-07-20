@@ -7,19 +7,19 @@ export class LocalStorageService {
 
   constructor() { }
 
-  setItem(key:string,value:string):void
-  {
-    localStorage.setItem(key,value);
+  setItem(key: string, value: string): void {
+    localStorage.setItem(key, value);
   }
 
-  isInLocalStorage(key:string):boolean
-  {
-    return localStorage.getItem(key) ? true:false;
+  isInLocalStorage(key: string): boolean {
+    return localStorage.getItem(key) ? true : false;
   }
 
-  getItem(key:string)
-  {
+  getItem(key: string) {
     return localStorage.getItem(key);
+  }
+  removeItem(key: string) {
+    localStorage.removeItem(key);
   }
 
 }
