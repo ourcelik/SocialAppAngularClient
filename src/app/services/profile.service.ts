@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProfileModel } from '../models/profileModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
+import { UpdateProfileModel } from '../models/updateProfileModel';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,10 @@ export class ProfileService {
    getUserProfileInfoByEmail(email:string):Observable<SingleResponseModel<ProfileModel>>{
      let newPath = this.apiUrl + "getbyemail/" + email;
     return this.httpClient.get<SingleResponseModel<ProfileModel>>(newPath);
+   }
+   
+   updateProfile(updateProfileModel:UpdateProfileModel):Observable<SingleResponseModel<ProfileModel>>{
+     let newPath = this.apiUrl + "updateprofile";
+     return this.httpClient.post<SingleResponseModel<ProfileModel>>(newPath,updateProfileModel);
    }
 }

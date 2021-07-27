@@ -9,4 +9,10 @@ export interface ProfileModel{
     relationStatus:boolean;
     birthdate:Date;
     profilePhotoUrl:string;
+    profilePhotoId:number;
+    profileId:number;
+    userId:number;
+    genderId:number;
+    gender:string;
+    
 }

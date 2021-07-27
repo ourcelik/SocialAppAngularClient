@@ -1,0 +1,143 @@
+<div class="row py-5 px-4">
+  <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
+    <!-- Profile widget -->
+    <div class="bg-white shadow rounded overflow-hidden">
+      <div class="px-4 pt-4 pb-4 bg-dark">
+        <div class="media align-items-end profile-header">
+          <div class="profile mr-3">
+            <img
+              [src]="profile.profilePhotoUrl"
+              alt="..."
+              width="130"
+              class="rounded mb-2 img-thumbnail"
+            /><a routerLink="edit/" class="btn btn-dark btn-sm btn-block"
+              >Profile Fotoğrafını Düzenle</a
+            >
+          </div>
+          <div class="media-body mb-5 text-white">
+            <h4 class="mt-0"></h4>
+            <p class="small"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-light p-4 d-flex justify-content-end text-center"></div>
+
+      <div class="py-4 px-4">
+        <main>
+          <form [formGroup]="profileForm" *ngIf="profile">
+            <div class="mt-5">
+              <input
+                type="text"
+                class="form-control p-3"
+                id="username"
+                name="username"
+                placeholder="{{ profile.username }}"
+                readonly
+              />
+            </div>
+
+            <div class="mt-5">
+              <input
+                type="email"
+                class="form-control p-3"
+                id="mail"
+                name="mail"
+                placeholder="{{ profile.mail }}"
+                readonly
+                />
+              
+            </div>
+            <div class="mt-5">
+              <input
+                type="text"
+                class="form-control p-3"
+                id="telNo"
+                name="telNo"
+                placeholder="{{ profile.telNo }}"
+                readonly
+              />
+              
+            </div>
+            <div class="form-floating mt-5">
+              <input
+                formControlName="name"
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+              />
+              <label class="op-5" for="name">{{ profile.name }}</label>
+            </div>
+            <div class="form-floating mt-5">
+              <input
+                formControlName="surname"
+                type="text"
+                class="form-control"
+                id="surname"
+                name="surname"
+              />
+              <label class="op-5" for="surname">{{ profile.surname }}</label>
+            </div>
+            <div class="form-floating mt-5">
+              <input
+                formControlName="weight"
+                type="text"
+                class="form-control"
+                id="weight"
+                name="weight"
+              />
+              <label class="op-5" for="weight">{{ profile.weight }}</label>
+            </div>
+            <div class="form-floating mt-5">
+              <input
+                formControlName="height"
+                type="text"
+                class="form-control"
+                id="height"
+                name="height"
+              />
+              <label class="op-5" for="height">{{ profile.height }}</label>
+            </div>
+            <div class="form-floating mt-5">
+              <input
+                formControlName="birthdate"
+                type="date"
+                class="form-control"
+                id="birthdate"
+                name="birthdate"
+              />
+              <label class="op-5" for="birthdate">{{ profile.birthdate | date}}</label>
+            </div>
+            <select
+              formControlName="genderId"
+              class="op-5 form-select form-select-lg mb-3 mt-5"
+              aria-label=".form-select-lg example"
+            >
+              <option  value="1">Erkek</option>
+              <option  value="2">Kadın</option>
+            </select>
+            <select
+              formControlName="RelationshipStatus"
+              class="op-5 form-select form-select-lg mb-3 mt-5"
+              aria-label=".form-select-lg example"
+            >
+              <option  value="1">Var</option>
+              <option  value="0">Yok</option>
+            </select>
+
+            <button
+              (click)="submit()"
+              class="mt-2 w-100 btn btn-lg btn-primary mt-5"
+              type="submit"
+            >
+              Güncelle
+            </button>
+            <p class="mt-5 mb-3 text-muted">&copy; ourcelik</p>
+          </form>
+        </main>
+      </div>
+    </div>
+    <!-- End profile widget -->
+  </div>
+</div>
