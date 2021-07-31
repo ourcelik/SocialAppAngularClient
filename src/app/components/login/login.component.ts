@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { shareReplay } from 'rxjs/operators';
 import { LoginModel } from 'src/app/models/loginModel';
 import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 import { TokenModel } from 'src/app/models/tokenModel';
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log(this.authService.isExpired());
   }
 
   createLoginForm() {
@@ -39,9 +41,14 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       let loginModel:LoginModel = Object.assign({},this.loginForm.value);
-      this.authService.login(loginModel).subscribe((response:SingleResponseModel<TokenModel>)=>{
-        this.toastrService.info(response.message);
+      this.authService.login(loginModel)
+      .pipe(
+        shareReplay()
+      )
+      .subscribe((response:SingleResponseModel<TokenModel>)=>{
+          this.toastrService.info(response.message);
           this.localStorageService.setItem("token",response.data.token);
+          this.localStorageService.setItem("expireTokenAt",JSON.stringify(response.data.expiration.valueOf()));
           this.router.navigate(["discover"]);
       },
       responseError =>{

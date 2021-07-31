@@ -20,8 +20,8 @@ export class ProfileService {
     return this.httpClient.get<SingleResponseModel<ProfileModel>>(newPath);
    }
    
-   updateProfile(updateProfileModel:UpdateProfileModel):Observable<SingleResponseModel<ProfileModel>>{
+   updateProfile(updateProfileModel:UpdateProfileModel):Observable<SingleResponseModel<number>>{
      let newPath = this.apiUrl + "updateprofile";
-     return this.httpClient.post<SingleResponseModel<ProfileModel>>(newPath,updateProfileModel);
+     return this.httpClient.post<SingleResponseModel<number>>(newPath,updateProfileModel);
    }
 }

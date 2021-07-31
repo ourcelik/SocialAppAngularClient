@@ -21,5 +21,10 @@ export class LocalStorageService {
   removeItem(key: string) {
     localStorage.removeItem(key);
   }
+  removeItems(params:string[]){
+    params.forEach(p => {
+      localStorage.removeItem(p);
+    });
+  }
 
 }

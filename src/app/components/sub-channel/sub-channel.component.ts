@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { shareReplay } from 'rxjs/operators';
 import { RoomModel } from 'src/app/models/roomModel';
 import { SearchService } from 'src/app/services/search.service';
 import { SubRoomService } from 'src/app/services/sub-room.service';
@@ -31,7 +32,11 @@ export class SubChannelComponent implements OnInit {
   }
 
   getByActivatedRoot(){
-    this.activatedRoute.params.subscribe(params =>{
+    this.activatedRoute.params
+    .pipe(
+      shareReplay()
+    )
+    .subscribe(params =>{
       if(params["mainChannelId"]){
         this.getRoomsByMainRoomId(params["mainChannelId"]);
       }

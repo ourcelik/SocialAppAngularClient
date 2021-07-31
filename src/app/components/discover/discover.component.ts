@@ -20,7 +20,8 @@ export class DiscoverComponent implements OnInit {
   }
 
   getSystemRooms(){
-    this.systemRoomService.getSystemRooms().subscribe((response) =>{
+    this.systemRoomService.getSystemRooms()
+    .subscribe((response) =>{
       this.rooms = response.data;
       this.dataloaded = true;
     });
