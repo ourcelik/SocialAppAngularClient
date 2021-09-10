@@ -4,6 +4,7 @@ import { DiscoverComponent } from './components/discover/discover.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { ProfileNotificationSettingsComponent } from './components/profile-notification-settings/profile-notification-settings.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SubChannelComponent } from './components/sub-channel/sub-channel.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"discover/:mainChannelId",component:SubChannelComponent},
   {path:"home",component:HomeComponent},
   {path:"profile",component:ProfileComponent,canActivate:[LoginGuard]},
+  {path:"profile/notificationSettings",component:ProfileNotificationSettingsComponent,canActivate:[LoginGuard]},
   {path:"profile/edit",component:ProfileEditComponent,canActivate:[LoginGuard]},
   {path:"login",component:LoginComponent,canActivate:[NotLoginGuard]},
   {path:"register",component:RegisterComponent,canActivate:[NotLoginGuard]},

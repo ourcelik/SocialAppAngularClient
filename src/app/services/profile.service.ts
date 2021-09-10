@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { ProfileModel } from '../models/profileModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { UpdateProfileModel } from '../models/updateProfileModel';
-
+import jwt_decode from 'jwt-decode';
+import { JwtPayload } from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,5 +24,10 @@ export class ProfileService {
    updateProfile(updateProfileModel:UpdateProfileModel):Observable<SingleResponseModel<number>>{
      let newPath = this.apiUrl + "updateprofile";
      return this.httpClient.post<SingleResponseModel<number>>(newPath,updateProfileModel);
+   }
+   getUserIdFromToken(token:string):JwtPayload{
+    let decodedToken = jwt_decode<JwtPayload>(token);
+    return decodedToken;
+
    }
 }

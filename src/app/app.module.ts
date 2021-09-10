@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ProfileNotificationSettingsComponent } from './components/profile-notification-settings/profile-notification-settings.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    ProfileNotificationSettingsComponent
   ],
   imports: [
     BrowserModule,

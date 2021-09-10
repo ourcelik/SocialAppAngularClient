@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { shareReplay } from 'rxjs/operators';
 import { SingleResponseModel } from 'src/app/models/singleResponseModel';
@@ -18,7 +19,8 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private toastrService: ToastrService,
     private authService: AuthService,
-    private localStorageService:LocalStorageService
+    private localStorageService:LocalStorageService,
+    private router:Router
     ) { }
 
   ngOnInit(): void {
@@ -46,7 +48,7 @@ export class RegisterComponent implements OnInit {
         this.toastrService.success(response.message,"Başarılı");
         this.localStorageService.setItem("token",response.data.token);
         this.localStorageService.setItem("expireTokenAt",JSON.stringify(response.data.expiration.valueOf()));
-
+        this.router.navigate(["discover"]);
 
       })
     }

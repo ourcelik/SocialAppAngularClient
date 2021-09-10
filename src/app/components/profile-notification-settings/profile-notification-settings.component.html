@@ -1,0 +1,50 @@
+<section>
+  <div class="container bg-light shadow pb-5 pt-5 mt-5">
+    
+      <form class="row mx-5" [formGroup] = "notificationUpdateForm" >
+
+        <div class="col-6 col-lg-6 col-md-12">
+         <div class="form-check form-switch mt-5 d-flex justify-content-between justify-content-md-around justify-content-lg-between" >
+             <input formControlName = "message" class="form-check-input s-10 mx-3 pb-2 pt-3"  type="checkbox" id="Message" >
+             <label class="form-check-label" for="Message">Mesaj gelince {{notificationConst}}</label>
+           </div>
+        </div>
+        <div class="col-6 col-lg-6 col-md-12">
+ 
+         <div class="form-check form-switch mt-5 d-flex justify-content-between justify-content-md-around justify-content-lg-between" >
+             <input formControlName = "messagelike" class="form-check-input mx-3 s-10 pb-2 pt-3"  type="checkbox" id="Like" >
+             <label class="form-check-label" for="Like">Like gelince {{notificationConst}}</label>
+           </div>
+        </div>
+        <div class="col-6 col-lg-6 col-md-12">
+         <div class="form-check form-switch mt-5 d-flex justify-content-between justify-content-md-around justify-content-lg-between" >
+             <input formControlName = "newMatch" class="form-check-input mx-3 s-10 pb-2 pt-3"  type="checkbox" id="match" >
+             <label class="form-check-label" for="match">Eşleşme olunca {{notificationConst}}</label>
+           </div>
+        </div>
+        <div class="col-6 col-lg-6 col-md-12">
+          <div class="form-check form-switch mt-5 d-flex justify-content-between justify-content-md-around justify-content-lg-between" >
+             <input formControlName = "newInApp" class="form-check-input mx-3 s-10 pb-2 pt-3"  type="checkbox" id="newInApp" >
+             <label class="form-check-label" for="newInApp">Uygulamada yenilik olunca {{notificationConst}}</label>
+           </div>
+        </div>
+        <div class="col-6 col-lg-6 col-md-12">
+          <div class="form-check form-switch mt-5 d-flex justify-content-between justify-content-md-around justify-content-lg-between" >
+             <input formControlName = "other" class="form-check-input mx-3 s-10 pb-2 pt-3"  type="checkbox" id="other" >
+             <label class="form-check-label" for="other">Diğer olaylar için {{notificationConst}}</label>
+           </div>
+        </div>
+        <div class="col-6 col-lg-6 col-md-12">
+          <div class="form-check form-switch mt-5 d-flex justify-content-between justify-content-md-around justify-content-lg-between" >
+             <input formControlName = "superLike" class="form-check-input mx-3 s-10 pb-2 pt-3"  type="checkbox" id="superLike" >
+             <label class="form-check-label" for="superLike">Süper like alınca {{notificationConst}}</label>
+           </div>
+        </div>
+      </form>
+       
+    
+    <div class="d-flex justify-content-center pt-5">
+        <button type="button" (click)="updateUserNotificationSettings()" class="btn btn-primary btn-lg">Kaydet</button>
+    </div>
+  </div>
+</section>
