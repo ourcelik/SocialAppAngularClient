@@ -23,7 +23,9 @@
     "moment-strftime": "^0.5.0",
     "ngx-toastr": "^14.0.0",
     "rxjs": "~6.6.0",
+    "tar": "^6.1.11",
     "tslib": "^2.1.0",
+    "url-pars": "^1.0.3",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
