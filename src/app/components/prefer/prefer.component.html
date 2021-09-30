@@ -1,0 +1,54 @@
+<section>
+    <div class="container bg-light shadow pb-5 pt-5 mt-5">
+      
+        <form  class="row mx-5" [formGroup] = "preferUpdateForm" >
+  
+        <div class="col-12 d-flex justify-content-around align-items-center">
+            <input type="number" class="form-control mx-5" min="18" max="80" formControlName="MinAge" name="MinAge" id="MinAge">
+            <label class="mx-5" for="minAge">Minimum yaş</label>
+        </div>
+        <div class="col-12 d-flex justify-content-around align-items-center">
+            <input type="number" class="form-control mx-5" min="18" max="80" formControlName="MaxAge" name="MaxAge" id="MaxAge">
+            <label class="mx-5" for="MaxAge">Maximum Yaş</label>
+        </div>
+        <div class="col-12 d-flex justify-content-around align-items-center">
+            <input type="number" class="form-control mx-5" min="0" formControlName="MaxDistance" name="MaxDistance" id="MaxDistance">
+            <label class="mx-5" for="MaxDistance">Maximum Uzaklık</label>
+        </div>
+        <div class="col-12 d-flex justify-content-around align-items-center">
+          <select class="form-control mx-5" formControlName="GenderPreferId" name="GenderPreferId" id="GenderPreferId">
+              <option value="1">Erkek</option>
+              <option value="2">Kadın</option>
+              <option value="2">Diğer</option>
+          </select>
+            <label class="mx-5" for="Gender">Cinsiyet tercihi</label>
+        </div>
+        <div class="form-check form-switch col-12 d-flex justify-content-around align-items-center">
+            <input formControlName = "Universal"  class="form-check-input mx-5"  type="checkbox" id="Universal" >
+            <label class="mx-5" for="Universal">Dünya çapında</label>
+        </div>
+        <div class="form-check form-switch col-12 d-flex justify-content-around align-items-center">
+            <input formControlName = "ShowMe"  class="form-check-input mx-5"  type="checkbox" id="ShowMe" >
+            <label class="mx-5" for="ShowMe">Beni göster</label>
+        </div>
+        <div class="form-check form-switch col-12 d-flex justify-content-around align-items-center">
+            <input formControlName = "Autoplay"  class="form-check-input mx-5"  type="checkbox" id="Autoplay" >
+            <label class="mx-5" for="Autoplay">Otomatik oynat</label>
+        </div>
+        <div class="form-check form-switch  col-12 d-flex justify-content-around align-items-center">
+            <input type="checkbox"  class="form-check-input mx-5"  formControlName="LastSeen" name="LastSeen" id="LastSeen">
+            <label class="mx-5" for="LastSeen">Son görülme</label>
+        </div>
+        <div class="form-check form-switch  col-12 d-flex justify-content-around align-items-center">
+            <input type="checkbox"  class="form-check-input mx-5" formControlName="AppVoice" name="AppVoice" id="AppVoice">
+            <label class="mx-5" for="AppVoice">Uygulama sesleri</label>
+        </div>
+        </form>
+         
+      
+      <div class="d-flex justify-content-center pt-5">
+          <button type="button" (click)="updateUserPreferSettings()" class="btn btn-primary btn-lg">Kaydet</button>
+      </div>
+    </div>
+  </section>
+  

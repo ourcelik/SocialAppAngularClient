@@ -17,6 +17,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ProfileNotificationSettingsComponent } from './components/profile-notification-settings/profile-notification-settings.component';
+import { PreferComponent } from './components/prefer/prefer.component';
+import { IsSubscribedPipe } from './pipes/is-subscribed.pipe';
+import { ChannelContentComponent } from './components/channel-content/channel-content.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { ProfileNotificationSettingsComponent } from './components/profile-notif
     RegisterComponent,
     ProfileComponent,
     ProfileEditComponent,
-    ProfileNotificationSettingsComponent
+    ProfileNotificationSettingsComponent,
+    PreferComponent,
+    IsSubscribedPipe,
+    ChannelContentComponent
   ],
   imports: [
     BrowserModule,

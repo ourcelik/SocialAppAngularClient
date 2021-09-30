@@ -2,8 +2,8 @@
     <div class="container">
     
     <div class="row">
-          <div class="col-sm-4 mt-4" *ngFor="let room of rooms | filter:getFilterText()">
-            <div class="card text-white card-has-bg click-col" style="background-image:url('{{room.roomPhotoUrl}}');">
+          <div class="col-sm-4 mt-4 align-center" *ngFor="let room of rooms | filter:getFilterText() ;let i= index ">
+            <div routerLink="{{room.roomId}}/content" class="card text-white card-has-bg click-col" style="background-image:url('{{room.roomPhotoUrl}}');">
             <img class="card-img d-none" src="{{room.roomPhotoUrl}}" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
           <div class="card-img-overlay d-flex flex-column">
            <div class="card-body">
@@ -22,7 +22,11 @@
           </div>
         </div>
       </div>
+      <div class="d-flex justify-content-center">
+        <button (click)="SubscribeChannelToggle(room)" type="button" [ngClass]="changeButtonColorBySubscriptionStatus(room)" class="btn w-50 my-3">{{room.isSubscribedModel.isSubscribed | isSubscribed}}</button>
+      </div>
         </div>
+       
        
     
   </div>
