@@ -14,6 +14,12 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class ProfileComponent implements OnInit {
   
   profile:ProfileModel;
+  dumyUserStatistic = {
+    countOfPhotos:5,
+    countOfPosts:5,
+    countOfFriends:0,
+    countOfConv:0
+  }
 
   constructor(private profileService:ProfileService,
     private localStorageService:LocalStorageService) { }

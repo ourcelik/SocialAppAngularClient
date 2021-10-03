@@ -38,7 +38,6 @@ export class SubChannelComponent implements OnInit {
         r.isSubscribedModel = {isSubscribed : false}
         this.isSubscribed(r.roomId);
       })
-      console.log(this.rooms);
     });
   }
 
@@ -58,7 +57,6 @@ export class SubChannelComponent implements OnInit {
 
     this.roomMemberService.isAlreadySubscribed({roomId:roomId,userId:0}).subscribe((res)=>{
       this.rooms.filter(r=>r.roomId == roomId)[0].isSubscribedModel.isSubscribed = res.data.isSubscribed;
-      console.log(res.data.isSubscribed,roomId);
     });
 
   }
@@ -106,9 +104,7 @@ export class SubChannelComponent implements OnInit {
       }
     });
   }
-  numSequence(num:number):Array<number>{
-    return Array<number>(num);
-  }
+ 
   getFilterText(){
     return this.searchService.getFilterText();
   }

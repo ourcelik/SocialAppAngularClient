@@ -1,0 +1,11 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<div class="container p-5 ">
+  <div class="w-100">
+   <app-channel-new-post (createPost)="createPost($event)" ></app-channel-new-post>
+  </div>
+<div class="row justify-content-center mt-5 " *ngFor="let post of posts">
+  <app-post class="col-md-10" [post]="post" (likePost)="likePost($event)"  ></app-post>
+
+ 
+</div>
+</div>

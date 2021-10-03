@@ -1,0 +1,9 @@
+<form [formGroup] = "CreatePostForm" class="w-100 d-flex justify-content-center align-items-center flex-column">
+    
+    <div class="mb-3 w-75">
+      <label for="ContentArea" class="form-label">Düşünceni Paylaş</label>
+      <textarea formControlName="contentMessage" placeholder="Bugün Hava Çok Güzel Değil mi?" (keydown.control.enter)="createPostEvent(CreatePostForm)" class="form-control" id="ContentArea" rows="3"></textarea>
+    </div>
+    <button (click)="createPostEvent(CreatePostForm)" class="btn-primary rounded w-75" >Gönder</button>
+
+   </form>

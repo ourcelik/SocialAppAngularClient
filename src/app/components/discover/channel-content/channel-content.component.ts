@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { shareReplay } from 'rxjs/operators';
+import { CreatePostModel } from 'src/app/models/CreatePostModel';
 import { PostDetailsWithPostInfoModel } from 'src/app/models/postDetailsWithPostInfoModel';
 import { PostModel } from 'src/app/models/postModel';
 import { PostLikeService } from 'src/app/services/post-like.service';
@@ -15,12 +17,14 @@ import { PostService } from 'src/app/services/post.service';
 export class ChannelContentComponent implements OnInit {
 
   posts:PostDetailsWithPostInfoModel[];
+  ChannelId:number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private toastrService:ToastrService,
     private postService:PostService,
-    private postLikeService:PostLikeService
+    private postLikeService:PostLikeService,
+    private formBuilder:FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +37,8 @@ export class ChannelContentComponent implements OnInit {
       shareReplay()
     )
     .subscribe(params =>{
-      if(params["SubChannelId"]){
+      this.ChannelId = params["SubChannelId"];
+      if(this.ChannelId){
         this.ShowPosts(params["SubChannelId"]);
       }
     });
@@ -42,10 +47,10 @@ export class ChannelContentComponent implements OnInit {
     this.postService.getPostsWithPostInfoByRoomId(postId).subscribe((res)=>
     {
         console.log(res);
-        this.posts = res.data;
+        this.posts = res.data.reverse();
     });
   }
-  LikePost(postId:number)
+  likePost(postId:number)
   {
     
     this.postLikeService.isAlreadyLikedPost({PostId:postId,UserId:0})
@@ -72,4 +77,23 @@ export class ChannelContentComponent implements OnInit {
 
     
   }
+  
+  createPost(createPostForm:FormGroup)
+  {
+    if (createPostForm.valid) {
+      let postModel:CreatePostModel = Object.assign({},createPostForm.value);
+      postModel.postId = 0,
+      postModel.relatedRoomId = this.ChannelId;
+      
+      this.postService.CreatePost(postModel).subscribe(res=>{
+        this.toastrService.success("Postunuz başarılı bir şekilde oluşturuldu");
+        this.getPosts();
+        createPostForm.reset();
+
+      })
+
+    }
+  }
+
+  
 }

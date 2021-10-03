@@ -1,0 +1,3 @@
+<div class="d-flex justify-content-center">
+    <button (click)="SubscribeChannel(room)" type="button" [ngClass]="changeButtonColorBySubscriptionStatus(room)" class="btn w-50 my-3">{{room.isSubscribedModel.isSubscribed | isSubscribed}}</button>
+  </div>

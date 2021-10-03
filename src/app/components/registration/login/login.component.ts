@@ -17,17 +17,17 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-
+  
   constructor(
     private formBuilder: FormBuilder,
     private toastrService:ToastrService,
     private authService:AuthService,
     private localStorageService:LocalStorageService,
-    private router:Router
+    private router:Router,
   ) {
     this.createLoginForm();
    }
-
+  
   ngOnInit(): void {
     console.log(this.authService.isExpired());
   }
@@ -58,3 +58,5 @@ export class LoginComponent implements OnInit {
     }
   }
 }
+
+

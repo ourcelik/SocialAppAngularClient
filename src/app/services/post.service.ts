@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CreatePostModel } from '../models/CreatePostModel';
 import { ListResponseModel } from '../models/listResponseModel';
+import { postBelongsToModel } from '../models/postBelongsToModel';
 import { PostDetailsWithPostInfoModel } from '../models/postDetailsWithPostInfoModel';
 import { PostModel } from '../models/postModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
@@ -56,6 +57,15 @@ export class PostService {
     let newPath = this.apiUrl + 'DeletePost/' + id;
 
     var data = this.httpClient.delete<SingleResponseModel<number>>(newPath)
+
+    return data;
+  }
+
+  postBelongsToThisUser(postBelongsToModel:postBelongsToModel):Observable<SingleResponseModel<boolean>>
+  {
+    let newPath = this.apiUrl + 'PostCanBeDeletedByThisUser';
+
+    var data = this.httpClient.post<SingleResponseModel<boolean>>(newPath,postBelongsToModel);
 
     return data;
   }

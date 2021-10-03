@@ -1,0 +1,17 @@
+<div class="px-4 pt-4 pb-4 bg-dark">
+    <div class=" media align-items-end profile-header">
+        <div class="profile mr-3"><img [src]="profile.profilePhotoUrl" alt="..." width="130" class="rounded mb-2 img-thumbnail">
+            <a routerLink="edit/" class="btn btn-dark btn-sm btn-block">Profili Düzenle</a>
+        </div>
+        <div class="media-body mb-5 text-white">
+            <h4 class="mt-0">{{profile.name + " " + profile.surname}}</h4>
+            <p class="small ">mail => {{profile.mail}}</p>
+            <p class="small ">Telefon Numarası => {{profile.telNo}}</p>
+            <p class="small ">Kilo => {{profile.weight}}</p>
+            <p class="small "> boy => {{profile.height}}</p>
+            <p class="small ">Doğum-Günü => {{profile.birthdate | date}}</p>
+            <p class="small ">İlişki-Durumu => {{getRelationStatus()}}</p>
+            <p class="small ">Cinsiyet => {{profile.gender}}</p>
+        </div>
+    </div>
+</div>
