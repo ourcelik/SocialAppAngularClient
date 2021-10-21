@@ -105,9 +105,7 @@ export class SubChannelComponent implements OnInit {
     });
   }
  
-  getFilterText(){
-    return this.searchService.getFilterText();
-  }
+  
   clearFilterText(){
     this.searchService.clearFilterText();
   }

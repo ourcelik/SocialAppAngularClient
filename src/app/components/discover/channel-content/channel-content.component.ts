@@ -3,9 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { shareReplay } from 'rxjs/operators';
+import { CommentRequiredProps } from 'src/app/models/commentModel';
 import { CreatePostModel } from 'src/app/models/CreatePostModel';
 import { PostDetailsWithPostInfoModel } from 'src/app/models/postDetailsWithPostInfoModel';
 import { PostModel } from 'src/app/models/postModel';
+import { CommentService } from 'src/app/services/comment.service';
 import { PostLikeService } from 'src/app/services/post-like.service';
 import { PostService } from 'src/app/services/post.service';
 
@@ -24,7 +26,8 @@ export class ChannelContentComponent implements OnInit {
     private toastrService:ToastrService,
     private postService:PostService,
     private postLikeService:PostLikeService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private commentService:CommentService
   ) { }
 
   ngOnInit(): void {
@@ -95,5 +98,18 @@ export class ChannelContentComponent implements OnInit {
     }
   }
 
+  createComment(event:CommentRequiredProps)
+  {
+    this.commentService
+    .createNewComment({comment:event.comment,relatedPostId:event.relatedPostId})
+    .subscribe(c=>{
+      this.toastrService.info(event.comment,"Yorumunuz eklendi");
+      this.posts.filter(p=>p.postId == event.relatedPostId)[0].commentCount += 1;
+    },
+    e=>{
+     this.toastrService.error("Daha sonra tekrar deneyiniz"); 
+    }
+    )
+  }
   
 }

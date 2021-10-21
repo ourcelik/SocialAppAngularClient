@@ -4,7 +4,7 @@
    <app-channel-new-post (createPost)="createPost($event)" ></app-channel-new-post>
   </div>
 <div class="row justify-content-center mt-5 " *ngFor="let post of posts">
-  <app-post class="col-md-10" [post]="post" (likePost)="likePost($event)"  ></app-post>
+  <app-post class="col-md-10" [post]="post" (likePost)="likePost($event)" (createComment)="createComment($event)"></app-post>
 
  
 </div>

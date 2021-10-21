@@ -1,5 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { NotificationCountModel } from 'src/app/models/notificationCountModel';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { SearchService } from 'src/app/services/search.service';
 @Component({
   selector: 'app-navbar',
@@ -9,11 +11,14 @@ import { SearchService } from 'src/app/services/search.service';
 export class NavbarComponent implements OnInit {
 
   filterText: string = "";
-
-  constructor(private searchService: SearchService,private authService:AuthService) { }
+  notificationCount:NotificationCountModel;
+  constructor(private searchService: SearchService,
+    private authService:AuthService,
+    private notificationService:NotificationService
+    ) { }
 
   ngOnInit(): void {
-
+    this.setNotificationCount();
   }
   updateFilter() {
     this.searchService.updateFilterText(this.filterText);
@@ -25,5 +30,9 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
   }
 
+  setNotificationCount():void
+  {
+    this.notificationCount = this.notificationService.getNotificationCount();
+  }
 
 }

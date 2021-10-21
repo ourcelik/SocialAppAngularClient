@@ -5,8 +5,6 @@ import { RoomMemberModel } from '../models/roomMemberModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { ProfileService } from 'src/app/services/profile.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
-import jwt_decode from 'jwt-decode';
-import { JwtPayload } from 'jwt-decode';
 import { IsSubcscribeModel } from '../models/isSubscribedModel';
 import { IsSubscribedInputModel } from '../models/isSubscribedInputModel';
 import { UnSubscribeModel } from '../models/unSubscribeModel';

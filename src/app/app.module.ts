@@ -30,6 +30,12 @@ import { UserStatisticComponent } from './components/profile/user-statistic/user
 import { UserPhotoComponent } from './components/profile/user-photo/user-photo.component';
 import { UserPostComponent } from './components/profile/user-post/user-post.component';
 import { ProfileContentComponent } from './components/profile/profile-content/profile-content.component';
+import { DiscoverCardsComponent } from './components/discover/discover-cards/discover-cards.component';
+import { SubChannelCardsComponent } from './components/discover/sub-channel-cards/sub-channel-cards.component';
+import { PostDetailComponent } from './components/discover/post-detail/post-detail.component';
+import { CommentsComponent } from './components/discover/comments/comments.component';
+import { CommentComponent } from './components/discover/comment/comment.component';
+import { RealtimeNotificationService } from './services/realtime-notification.service';
 
 
 @NgModule({
@@ -58,6 +64,11 @@ import { ProfileContentComponent } from './components/profile/profile-content/pr
     UserPhotoComponent,
     UserPostComponent,
     ProfileContentComponent,
+    DiscoverCardsComponent,
+    SubChannelCardsComponent,
+    PostDetailComponent,
+    CommentsComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,4 +87,12 @@ import { ProfileContentComponent } from './components/profile/profile-content/pr
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  /**
+   *
+   */
+  constructor(private realtimeNotificationService:RealtimeNotificationService ) {
+
+  }
+ }

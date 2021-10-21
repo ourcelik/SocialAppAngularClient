@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-sm-4 mt-4 align-center" *ngFor="let room of rooms | filter:getFilterText() ;let i= index ">
+   <app-sub-channel-card [room]="room" ></app-sub-channel-card>
+   <app-subscribe-channel [room]="room" (channelSubscription)="SubscribeChannelToggle($event)" ></app-subscribe-channel>
+  </div>
+ 
+ 
+
+</div>

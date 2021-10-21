@@ -12,7 +12,8 @@ export class DiscoverComponent implements OnInit {
 
   rooms:SystemRoomModel[];
   dataloaded:boolean = false;
-  constructor(private systemRoomService:SystemRoomService,private searchService:SearchService) { }
+  constructor(private systemRoomService:SystemRoomService
+              ,private searchService:SearchService) { }
 
   ngOnInit(): void {
     this.getSystemRooms();
@@ -32,9 +33,7 @@ export class DiscoverComponent implements OnInit {
   numSequence(num:number):Array<number>{
     return Array<number>(num);
   }
-  getFilterText(){
-    return this.searchService.getFilterText();
-  }
+ 
   clearFilterText(){
     this.searchService.clearFilterText();
   }

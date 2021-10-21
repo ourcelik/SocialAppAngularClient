@@ -8,6 +8,7 @@ import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 import { TokenModel } from 'src/app/models/tokenModel';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { RealtimeNotificationService } from 'src/app/services/realtime-notification.service';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
     private authService:AuthService,
     private localStorageService:LocalStorageService,
     private router:Router,
+    private realtimeNotificationService:RealtimeNotificationService
   ) {
     this.createLoginForm();
    }
@@ -49,6 +51,7 @@ export class LoginComponent implements OnInit {
           this.toastrService.info(response.message);
           this.localStorageService.setItem("token",response.data.token);
           this.localStorageService.setItem("expireTokenAt",JSON.stringify(response.data.expiration.valueOf()));
+          this.realtimeNotificationService.reconnectNotification();
           this.router.navigate(["discover"]);
       },
       responseError =>{

@@ -1,0 +1,8 @@
+<div class="container comments">
+    <div class="my-3">
+        <p class="c-blue">Comments:</p>
+    </div>
+    <ng-container *ngFor="let commentTemp of postComments">
+        <app-comment [commentTemp] = "commentTemp" ></app-comment>
+    </ng-container>
+</div>

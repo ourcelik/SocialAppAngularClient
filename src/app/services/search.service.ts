@@ -12,6 +12,7 @@ export class SearchService {
   updateFilterText(filterText:string)
   {
     this.filterText = filterText;
+    console.log(filterText);
   }
   getFilterText():string{
     return this.filterText;

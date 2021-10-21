@@ -1,15 +1,9 @@
 <section class="wrapper">
     <div class="container">
     
-    <div class="row"  >
-      <div class="col-sm-4 mt-4" *ngFor="let room of rooms |filter:getFilterText()">
-
-        <app-discover-card [roomModel]="room" ></app-discover-card>
-      </div>
-      
-       
-    
-  </div>
+  
+     <app-discover-cards [rooms]="rooms"></app-discover-cards>
+ 
     
   </div>
   </section>

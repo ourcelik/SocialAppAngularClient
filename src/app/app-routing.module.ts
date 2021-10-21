@@ -12,12 +12,14 @@ import { RegisterComponent } from './components/registration/register/register.c
 import { SubChannelComponent } from './components/discover/sub-channel/sub-channel.component';
 import { LoginGuard } from './guards/login.guard';
 import { NotLoginGuard } from './guards/not-login.guard';
+import { PostDetailComponent } from './components/discover/post-detail/post-detail.component';
 
 const routes: Routes = [
   {path:"discover",component:DiscoverComponent},
   {path:"discover/:mainChannelId",component:SubChannelComponent},
   {path:"home",component:HomeComponent},
   {path:"discover/:mainChannelId/:SubChannelId/content",component:ChannelContentComponent},
+  {path:"postdetail/:postId",component:PostDetailComponent},
   {path:"profile",component:ProfileComponent,canActivate:[LoginGuard]},
   {path:"profile/notificationSettings",component:ProfileNotificationSettingsComponent,canActivate:[LoginGuard]},
   {path:"profile/preferSettings",component:PreferComponent,canActivate:[LoginGuard]},

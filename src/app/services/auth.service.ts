@@ -16,7 +16,10 @@ export class AuthService {
 
   private apiUrl: string = "https://localhost:44368/api/Auth/";
 
-  constructor(private httpClient: HttpClient,private localStorageService:LocalStorageService) { }
+  constructor(private httpClient: HttpClient,
+    private localStorageService:LocalStorageService
+    
+    ) { }
 
   login(loginModel: LoginModel): Observable<SingleResponseModel<TokenModel>> {
 

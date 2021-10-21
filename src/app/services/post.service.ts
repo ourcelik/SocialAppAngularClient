@@ -69,4 +69,12 @@ export class PostService {
 
     return data;
   }
+  getPost(id:number):Observable<SingleResponseModel<PostModel>>
+  {
+    let newPath = this.apiUrl + 'GetPostByPostId/' + id;
+    
+    var data = this.httpClient.get<SingleResponseModel<PostModel>>(newPath);
+
+    return data;
+  }
 }
