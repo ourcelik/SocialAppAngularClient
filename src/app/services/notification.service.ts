@@ -6,6 +6,7 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 import { LocalStorageService } from './local-storage.service';
 import { ProfileService } from './profile.service';
 import { JwtPayload } from 'jwt-decode';
+import { NotificationCountModel } from '../models/notificationCountModel';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,8 @@ import { JwtPayload } from 'jwt-decode';
 export class NotificationService {
 
   private apiUrl:string = "https://localhost:44368/api/Notifications/";
+
+  private notificationCount:NotificationCountModel = {notificationCount : 0};
 
   constructor(private profileService:ProfileService,
               private localStorageService:LocalStorageService,
@@ -31,6 +34,15 @@ export class NotificationService {
 
     return this.httpClient.get<SingleResponseModel<NotificationModel>>(newUrl);
 
+  }
+
+  getNotificationCount():NotificationCountModel
+  {
+    return this.notificationCount;
+  }
+  updateNotificationCount(count:number)
+  {
+    this.notificationCount.notificationCount = count;
   }
 
   updateUserNotificationSettings(notificationModel:NotificationModel):Observable<SingleResponseModel<number>>{
